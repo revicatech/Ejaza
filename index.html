@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>إجازة — فلل دمشق وريفها للإيجار</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Markazi+Text:wght@400;500;600;700&family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+
+/* ============ TOKENS ============ */
+:root{
+  --near-black-navy:#0B0D1E;
+  --deep-charcoal:#111111;
+  --white:#FFFFFF;
+  --off-white:#F7F7F5;
+  --pale-blue-gray:#E5ECF4;
+  --text-dark-primary:#FFFFFF;
+  --text-dark-secondary:#C9CAD3;
+  --text-light-primary:#111111;
+  --text-light-secondary:#6B6B6B;
+
+  --serif: 'Markazi Text', serif;
+  --sans: 'Cairo', -apple-system, sans-serif;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-pill: 999px;
+
+  --max-w: 1240px;
+  --gutter: clamp(20px, 4vw, 64px);
+  --section-pad: clamp(64px, 10vw, 140px);
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  font-family: var(--sans);
+  color: var(--text-light-primary);
+  background: var(--off-white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%; display:block;}
+a{color:inherit; text-decoration:none;}
+button{font-family:inherit; cursor:pointer; border:none;}
+.container{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+.eyebrow{
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--text-light-secondary);
+}
+.eyebrow.on-dark{ color: var(--text-dark-secondary); }
+.eyebrow::before{
+  content:"";
+  display:inline-block;
+  width:18px; height:1px;
+  background: currentColor;
+  margin-left:10px;
+  vertical-align:middle;
+  opacity:.6;
+}
+h1,h2,h3{
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+em{ font-style: normal; font-weight: 600; opacity:.72; }
+p{ line-height:1.7; color: var(--text-light-secondary); font-size:15px; }
+
+/* buttons */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding: 15px 30px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight:600;
+  letter-spacing:0.03em;
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
+}
+.btn:hover{ transform: translateY(-2px); }
+.btn-dark{ background: var(--near-black-navy); color:var(--white); }
+.btn-dark:hover{ box-shadow: 0 12px 24px rgba(11,13,30,.28); }
+.btn-light{ background: var(--white); color: var(--near-black-navy); }
+.btn-light:hover{ box-shadow: 0 12px 28px rgba(0,0,0,.35); }
+.btn-icon{
+  width:52px; height:52px; border-radius:50%;
+  background: var(--near-black-navy);
+  color:var(--white);
+  display:flex; align-items:center; justify-content:center;
+  flex-shrink:0;
+}
+.btn-arrow{
+  width:40px; height:40px; border-radius:50%;
+  background: var(--white);
+  border:1px solid rgba(17,17,17,.12);
+  display:flex; align-items:center; justify-content:center;
+  transition: background .25s ease, color .25s ease;
+}
+.btn-arrow:hover{ background: var(--near-black-navy); color:var(--white); }
+
+/* ============ HEADER ============ */
+.site-header{
+  position:absolute;
+  top:0; left:0; right:0;
+  z-index:50;
+  padding: 28px 0;
+}
+.site-header .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo{
+  font-family: var(--serif);
+  font-size:22px;
+  color: var(--white);
+  letter-spacing: 0.01em;
+  display:flex; align-items:center; gap:8px;
+}
+.logo .mark{
+  width:9px; height:9px;
+  border-radius:50%;
+  background: var(--white);
+  display:inline-block;
+}
+.nav-links{
+  display:flex;
+  gap:38px;
+  list-style:none;
+}
+.nav-links a{
+  font-size:13px;
+  font-weight:500;
+  color: var(--text-dark-secondary);
+  transition: color .25s ease;
+}
+.nav-links a:hover{ color: var(--white); }
+.header-cta{ display:flex; align-items:center; gap:20px; }
+.header-cta .btn{ padding:12px 24px; }
+.nav-toggle{
+  display:none;
+  width:40px; height:40px;
+  border-radius:50%;
+  background: rgba(255,255,255,.12);
+  color:var(--white);
+  align-items:center; justify-content:center;
+}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;
+  min-height: 92vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: linear-gradient(180deg, rgba(11,13,30,.55) 0%, rgba(11,13,30,.5) 40%, rgba(6,7,16,.92) 100%),
+              url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+  padding: 140px var(--gutter) 170px;
+  text-align:center;
+}
+.hero-inner{ max-width: 780px; margin: 0 auto; }
+.hero .eyebrow{ color: var(--text-dark-secondary); justify-content:center; display:flex; margin-bottom:22px;}
+.hero h1{
+  font-size: clamp(40px, 6.4vw, 80px);
+  color: var(--white);
+  margin-bottom: 24px;
+}
+.hero p{
+  color: var(--text-dark-secondary);
+  max-width: 480px;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+/* ============ SEARCH CARD ============ */
+.search-wrap{
+  position:relative;
+  z-index:10;
+  margin-top: -78px;
+  padding: 0 var(--gutter);
+}
+.search-card{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 30px 60px rgba(11,13,30,.18);
+  padding: 10px 34px 10px 10px;
+  display:flex;
+  align-items:center;
+  gap: 4px;
+}
+.search-field{
+  flex:1;
+  min-width:0;
+  padding: 14px 22px;
+  border-left: 1px solid rgba(17,17,17,.08);
+}
+.search-field:last-of-type{ border-left:none; }
+.search-field label{
+  display:block;
+  font-size:10px;
+  letter-spacing:0.08em;
+  text-transform:uppercase;
+  color: var(--text-light-secondary);
+  margin-bottom:4px;
+}
+.search-field select{
+  border:none;
+  background:transparent;
+  font-family: var(--sans);
+  font-size:14px;
+  font-weight:500;
+  color: var(--text-light-primary);
+  width:100%;
+  appearance:none;
+}
+.search-card .btn-icon{ margin-right:6px; }
+
+/* ============ INTRO ============ */
+.intro{
+  background: var(--white);
+  padding: var(--section-pad) 0;
+}
+.intro .container{
+  display:grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 70px;
+  align-items:center;
+}
+.intro-copy h2{ font-size: clamp(30px, 3.4vw, 42px); margin: 18px 0 22px; color: var(--text-light-primary); }
+.intro-copy p{ margin-bottom: 30px; max-width: 420px; }
+.intro-stat{
+  display:flex;
+  align-items:baseline;
+  gap:14px;
+  padding-top:24px;
+  border-top: 1px solid var(--pale-blue-gray);
+}
+.intro-stat strong{
+  font-family: var(--serif);
+  font-size: 32px;
+  color: var(--text-light-primary);
+}
+.intro-stat span{ font-size:13px; color: var(--text-light-secondary); }
+
+.collage{
+  position:relative;
+  display:grid;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 18px;
+  height: 460px;
+}
+.collage img{
+  width:100%; height:100%;
+  object-fit:cover;
+  border-radius: var(--radius-md);
+}
+.collage .c1{ grid-row: 1 / 3; }
+.collage .c2{ grid-row: 1 / 2; }
+.collage .c3{ grid-row: 2 / 3; }
+.collage-controls{
+  position:absolute;
+  bottom: -22px; left: 30%;
+  display:flex;
+  gap:10px;
+  background: var(--white);
+  padding:8px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 12px 24px rgba(11,13,30,.14);
+}
+
+/* ============ STATS BAND ============ */
+.stats-band{
+  background: var(--near-black-navy);
+  padding: 74px 0;
+}
+.stats-band .container{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+}
+.stat-item{
+  border-right: 1px solid rgba(255,255,255,.12);
+  padding-right: 26px;
+}
+.stat-item strong{
+  display:block;
+  font-family: var(--serif);
+  font-size: clamp(30px, 3.6vw, 42px);
+  color: var(--white);
+  margin-bottom:8px;
+}
+.stat-item span{
+  font-size: 12px;
+  letter-spacing:0.06em;
+  text-transform:uppercase;
+  color: var(--text-dark-secondary);
+}
+
+/* ============ PROPERTY GRID ============ */
+.listings{
+  background: var(--off-white);
+  padding: var(--section-pad) 0;
+}
+.listings-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-end;
+  margin-bottom: 52px;
+  gap: 30px;
+  flex-wrap:wrap;
+}
+.listings-head h2{ font-size: clamp(28px, 3.2vw, 38px); margin-top:16px; }
+.filter-tabs{
+  display:flex;
+  gap:10px;
+  background: var(--white);
+  padding:6px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 8px 20px rgba(11,13,30,.06);
+}
+.filter-tab{
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  font-size:13px;
+  font-weight:600;
+  color: var(--text-light-secondary);
+  background:transparent;
+  transition: all .25s ease;
+}
+.filter-tab.active{ background: var(--near-black-navy); color:var(--white); }
+
+.property-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.card{
+  background: var(--white);
+  border-radius: var(--radius-md);
+  overflow:hidden;
+  box-shadow: 0 6px 18px rgba(11,13,30,.05);
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
+}
+.card:hover{ transform: translateY(-6px); box-shadow: 0 20px 40px rgba(11,13,30,.12); }
+.card-image{ position:relative; aspect-ratio: 4/3; overflow:hidden; }
+.card-image img{ width:100%; height:100%; object-fit:cover; }
+.card-badge{
+  position:absolute; top:14px; right:14px;
+  background: rgba(255,255,255,.92);
+  color: var(--text-light-primary);
+  font-size:11px; font-weight:600;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  text-transform:uppercase;
+  letter-spacing:0.04em;
+}
+.card-body{ padding: 22px 22px 26px; }
+.card-price{ font-size:19px; font-weight:700; margin-bottom:6px; }
+.card-title{ font-family:var(--serif); font-weight:500; font-size:17px; margin-bottom:6px; }
+.card-address{ font-size:12.5px; color: var(--text-light-secondary); margin-bottom:16px; }
+.card-meta{
+  display:flex; gap:16px;
+  padding-top:14px;
+  border-top: 1px solid var(--pale-blue-gray);
+  font-size:12.5px;
+  color: var(--text-light-secondary);
+}
+.card-meta span{ display:flex; align-items:center; gap:6px; }
+
+.listings-more{ display:flex; justify-content:center; margin-top: 54px; }
+
+/* ============ OWNER SECTION ============ */
+.owner-section{
+  background: var(--near-black-navy);
+  padding: var(--section-pad) 0;
+}
+.owner-section .container{
+  display:grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items:center;
+}
+.owner-content h2{
+  font-size: clamp(28px, 3.2vw, 40px);
+  color: var(--white);
+  margin: 16px 0 18px;
+}
+.owner-content p{ color: var(--text-dark-secondary); max-width: 460px; margin-bottom: 26px; }
+.owner-list{ list-style:none; display:flex; flex-direction:column; gap:14px; margin-bottom: 32px; }
+.owner-list li{
+  display:flex; align-items:center; gap:12px;
+  color: var(--text-dark-primary);
+  font-size:14px;
+}
+.owner-list svg{ width:20px; height:20px; color: var(--white); flex-shrink:0; }
+.owner-card{
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 40px 34px;
+  text-align:center;
+}
+.owner-card .big{ font-family: var(--serif); font-size: 56px; color: var(--text-light-primary); }
+.owner-card .cap{ font-size:13px; color: var(--text-light-secondary); margin-bottom:22px; }
+.owner-card hr{ border:none; border-top:1px solid var(--pale-blue-gray); margin: 20px 0; }
+.owner-card .btn{ background: var(--near-black-navy); color:var(--white); width:100%; justify-content:center; margin-top:10px; }
+
+/* ============ CTA BAND ============ */
+.cta-band{
+  position:relative;
+  padding: 130px var(--gutter);
+  text-align:center;
+  background: linear-gradient(180deg, rgba(6,7,16,.75), rgba(6,7,16,.92)),
+              url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+}
+.cta-band h2{
+  font-size: clamp(32px, 4.6vw, 54px);
+  color: var(--white);
+  max-width: 640px;
+  margin: 0 auto 22px;
+}
+.cta-band p{
+  color: var(--text-dark-secondary);
+  max-width: 420px;
+  margin: 0 auto 36px;
+}
+.cta-actions{ display:flex; flex-direction:column; align-items:center; gap:16px; }
+.cta-email{ font-size:13px; color: var(--text-dark-secondary); }
+.cta-email a{ color:var(--white); border-bottom:1px solid rgba(255,255,255,.4); }
+
+/* ============ FOOTER ============ */
+footer{
+  background: var(--deep-charcoal);
+  color: var(--text-dark-secondary);
+  padding: 90px var(--gutter) 0;
+}
+.footer-top{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display:grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 70px;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.footer-brand p{ color: var(--text-dark-secondary); font-size:13.5px; max-width:280px; margin-top:16px;}
+.footer-col h4{
+  font-size:12px; letter-spacing:0.08em; text-transform:uppercase;
+  color: var(--white); margin-bottom:20px; font-weight:600;
+}
+.footer-col ul{ list-style:none; display:flex; flex-direction:column; gap:12px; }
+.footer-col a{ font-size:13.5px; color: var(--text-dark-secondary); transition:color .2s ease; }
+.footer-col a:hover{ color:var(--white); }
+.footer-social{ display:flex; gap:12px; margin-top:20px; }
+.footer-social a{
+  width:38px; height:38px; border-radius:50%;
+  border:1px solid rgba(255,255,255,.16);
+  display:flex; align-items:center; justify-content:center;
+}
+.footer-wordmark{
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 30px 0 20px;
+  font-family: var(--serif);
+  font-size: clamp(70px, 15vw, 200px);
+  line-height:0.85;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  text-align:center;
+  user-select:none;
+}
+.footer-bottom{
+  max-width: var(--max-w);
+  margin:0 auto;
+  display:flex; justify-content:space-between;
+  font-size:12px;
+  padding: 26px 0 34px;
+  color: rgba(201,202,211,.6);
+  flex-wrap:wrap; gap:10px;
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 900px){
+  .nav-links, .header-cta .btn{ display:none; }
+  .nav-toggle{ display:flex; }
+  .intro .container{ grid-template-columns:1fr; }
+  .collage{ height: 360px; }
+  .stats-band .container{ grid-template-columns: repeat(2,1fr); row-gap:36px; }
+  .property-grid{ grid-template-columns: 1fr; }
+  .search-card{ flex-wrap:wrap; border-radius: var(--radius-md); padding:18px; }
+  .search-field{ border-right:none; flex: 1 1 45%; padding:10px; }
+  .footer-top{ grid-template-columns: 1fr 1fr; }
+  .owner-section .container{ grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce){
+  *{ transition:none !important; scroll-behavior:auto !important; }
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="#" class="logo"><span class="mark"></span>إجازة</a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#listings">الفلل</a></li>
+        <li><a href="#intro">كيف تشتغل</a></li>
+        <li><a href="#owners">أصحاب الفلل</a></li>
+        <li><a href="#cta">تواصل معنا</a></li>
+      </ul>
+    </nav>
+    <div class="header-cta">
+      <a href="#cta" class="btn btn-light">تواصل معنا</a>
+    </div>
+    <button class="nav-toggle" aria-label="القائمة">☰</button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow on-dark">فلل وشاليهات دمشق وريفها</div>
+    <h1>إجازتك الجاية<br><em>أقرب مما تتخيل</em></h1>
+    <p>فلل وشاليهات مختارة بعناية في يعفور، بلودان، الزبداني ومضايا — بعيد عن صخب المدينة، وقريب منها بنفس الوقت.</p>
+  </div>
+</section>
+
+<div class="search-wrap">
+  <div class="search-card">
+    <div class="search-field">
+      <label>المنطقة</label>
+      <select><option>أي منطقة</option><option>يعفور</option><option>بلودان</option><option>الزبداني</option><option>مضايا</option></select>
+    </div>
+    <div class="search-field">
+      <label>تاريخ الوصول</label>
+      <select><option>اختر التاريخ</option><option>هذا الأسبوع</option><option>نهاية الشهر</option><option>الشهر القادم</option></select>
+    </div>
+    <div class="search-field">
+      <label>تاريخ المغادرة</label>
+      <select><option>اختر التاريخ</option><option>بعد ٣ ليالٍ</option><option>بعد أسبوع</option><option>بعد أسبوعين</option></select>
+    </div>
+    <div class="search-field">
+      <label>عدد الضيوف</label>
+      <select><option>ضيفان</option><option>٤ ضيوف</option><option>٦ ضيوف</option><option>٨ ضيوف فأكثر</option></select>
+    </div>
+    <button class="btn-icon" aria-label="بحث">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</div>
+
+<section class="intro" id="intro">
+  <div class="container">
+    <div class="intro-copy">
+      <div class="eyebrow">تجربتنا</div>
+      <h2>نختار الفلل بعناية، <em>لا بالكم</em></h2>
+      <p>منصة محلية جديدة لتأجير فلل وشاليهات ريف دمشق. نزور كل فيلا بأنفسنا، نصورها احترافياً، ونتأكد من كل تفصيلة فيها قبل ما تنعرض عندنا.</p>
+      <a href="#listings" class="btn btn-dark">استكشف الفلل</a>
+      <div class="intro-stat">
+        <strong>جديد</strong>
+        <span>منصة سورية 100%<br>مبنية لخدمة أهل الشام</span>
+      </div>
+    </div>
+    <div class="collage">
+      <img class="c1" src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80" alt="Interior living space with warm light">
+      <img class="c2" src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=900&q=80" alt="Modern residence exterior at dusk">
+      <img class="c3" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80" alt="Minimal interior detail">
+      <div class="collage-controls">
+        <button class="btn-arrow" id="collagePrev" aria-label="السابق">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button class="btn-arrow" id="collageNext" aria-label="التالي">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="stats-band">
+  <div class="container">
+    <div class="stat-item"><strong>٤</strong><span>مناطق ريف دمشق</span></div>
+    <div class="stat-item"><strong>١٠٠٪</strong><span>عقارات تمت زيارتها فعلياً</span></div>
+    <div class="stat-item"><strong>٠٪</strong><span>عمولة على أول ١٠ فلل</span></div>
+    <div class="stat-item"><strong>واتساب</strong><span>تواصل مباشر وسريع</span></div>
+  </div>
+</section>
+
+<section class="listings" id="listings">
+  <div class="container">
+    <div class="listings-head">
+      <div>
+        <div class="eyebrow">شكل التجربة</div>
+        <h2>هيك رح تنعرض فيلتك عندنا</h2>
+        <p style="max-width:520px; margin-top:10px;">المعرض التالي توضيحي — أمثلة عن شكل وتنسيق صفحة العقار. لسا عم نبني قائمة الفلل الفعلية بالتعاون مع أصحاب العقارات.</p>
+      </div>
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">الكل</button>
+        <button class="filter-tab" data-filter="yafour">يعفور</button>
+        <button class="filter-tab" data-filter="bludan">بلودان</button>
+        <button class="filter-tab" data-filter="zabadani">الزبداني</button>
+      </div>
+    </div>
+
+    <div class="property-grid" id="propertyGrid">
+
+      <article class="card" data-type="yafour">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80" alt="فيلا بشرفة كبيرة وإطلالة جبلية">
+          <span class="card-badge">مثال توضيحي</span>
+        </div>
+        <div class="card-body">
+          <div class="card-price">١٤٠,٠٠٠ ل.س / الليلة</div>
+          <div class="card-title">فيلا الزيتون</div>
+          <div class="card-address">يعفور، ريف دمشق</div>
+          <div class="card-meta">
+            <span>٣ غرف</span><span>شرفة كبيرة</span><span>حتى ٨ أشخاص</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-type="bludan">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=900&q=80" alt="فيلا بمسبح مدفأ عند الغروب">
+          <span class="card-badge">مثال توضيحي</span>
+        </div>
+        <div class="card-body">
+          <div class="card-price">٣٢٠,٠٠٠ ل.س / الليلة</div>
+          <div class="card-title">فيلا اللوز</div>
+          <div class="card-address">بلودان</div>
+          <div class="card-meta">
+            <span>٧ غرف</span><span>مسبح مدفأ</span><span>حتى ١٦ شخص</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="card" data-type="zabadani">
+        <div class="card-image">
+          <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=900&q=80" alt="فيلا بحديقة صغيرة قريبة من دمشق">
+          <span class="card-badge">مثال توضيحي</span>
+        </div>
+        <div class="card-body">
+          <div class="card-price">١٦٠,٠٠٠ ل.س / الليلة</div>
+          <div class="card-title">فيلا السنديان</div>
+          <div class="card-address">الزبداني</div>
+          <div class="card-meta">
+            <span>٤ غرف</span><span>حديقة صغيرة</span><span>حتى ١٠ أشخاص</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="listings-more">
+      <a href="#owners" class="btn btn-dark">عندك فيلا؟ كون أول عقار عنا</a>
+    </div>
+  </div>
+</section>
+
+<section class="owner-section" id="owners">
+  <div class="container">
+    <div class="owner-content">
+      <div class="eyebrow on-dark">لأصحاب الفلل</div>
+      <h2>عندك فيلا فاضية أغلب الوقت؟ خليها تشتغل</h2>
+      <p>منصوّرها مجاناً، منعرضها بشكل احترافي، ومنجيبلك حجوزات حقيقية. ما بتدفع اشتراك ولا رسوم مقدّمة.</p>
+      <ul class="owner-list">
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          تصوير احترافي مجاني لأول ١٠ فلل تنضم معنا
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          عمولة 8% على الحجز الناجح فقط، بدون رسوم اشتراك
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>
+          تحكم كامل بتواريخ التوفر والأسعار
+        </li>
+      </ul>
+      <a href="#cta" class="btn btn-dark">سجّل فيلتك</a>
+    </div>
+    <div class="owner-card">
+      <div class="big">١٥٪</div>
+      <div class="cap">عمولة ثابتة لأول ١٠ فلل تنضم للمنصة</div>
+      <hr>
+      <p>بتدفع عمولة بس لما يتأكد الحجز — يعني ما في مخاطرة عليك، وما في التزام مسبق.</p>
+      <a href="#cta" class="btn">سجّل فيلتك الآن</a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band" id="cta">
+  <div class="eyebrow on-dark" style="justify-content:center; display:flex;">لنبدأ الحديث</div>
+  <h2 style="margin-top:18px;">جاهز تحجز<br><em>فيلتك الجاية؟</em></h2>
+  <p>أخبرنا عن المنطقة والتاريخ يلي بدك ياه، ومنساعدك تلاقي الفيلا المناسبة.</p>
+  <div class="cta-actions">
+    <a href="https://wa.me/963000000000" class="btn btn-light">تواصل عبر واتساب</a>
+    <div class="cta-email">أو راسلنا على <a href="mailto:hello@ejaza-sy.com">hello@ejaza-sy.com</a></div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <a href="#" class="logo" style="color:var(--white);"><span class="mark"></span>إجازة</a>
+      <p>منصة محلية لتأجير الفلل بدمشق وريفها، مبنية على الثقة والشفافية بين المستأجر وصاحب الفيلا.</p>
+      <div class="footer-social">
+        <a href="#" aria-label="انستغرام">◐</a>
+        <a href="https://wa.me/963000000000" aria-label="واتساب">✆</a>
+        <a href="mailto:hello@ejaza-sy.com" aria-label="البريد">✉</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>استكشف</h4>
+      <ul>
+        <li><a href="#listings">الفلل</a></li>
+        <li><a href="#intro">كيف تشتغل</a></li>
+        <li><a href="#owners">أصحاب الفلل</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>المناطق</h4>
+      <ul>
+        <li><a href="#">يعفور</a></li>
+        <li><a href="#">الزبداني</a></li>
+        <li><a href="#">بلودان</a></li>
+        <li><a href="#">مضايا</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>تواصل معنا</h4>
+      <ul>
+        <li><a href="mailto:hello@ejaza-sy.com">hello@ejaza-sy.com</a></li>
+        <li><a href="https://wa.me/963000000000">واتساب</a></li>
+        <li><a href="#cta">تواصل معنا</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-wordmark">إجازة</div>
+  <div class="footer-bottom">
+    <span>© ٢٠٢٦ إجازة. جميع الحقوق محفوظة.</span>
+    <span>دمشق، سوريا</span>
+  </div>
+</footer>
+
+<script>
+  // Filter tabs
+  const tabs = document.querySelectorAll('.filter-tab');
+  const cards = document.querySelectorAll('#propertyGrid .card');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      cards.forEach(card => {
+        const show = filter === 'all' || card.dataset.type === filter;
+        card.style.display = show ? '' : 'none';
+      });
+    });
+  });
+
+  // Collage arrow controls (cosmetic cycle of image set)
+  const collageSets = [
+    [
+      'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=900&q=80'
+    ],
+    [
+      'https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80',
+      'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=900&q=80'
+    ]
+  ];
+  let collageIndex = 0;
+  const collageImgs = [document.querySelector('.collage .c1'), document.querySelector('.collage .c2'), document.querySelector('.collage .c3')];
+  function renderCollage(){
+    const set = collageSets[collageIndex];
+    collageImgs.forEach((img, i) => { if(img) img.src = set[i]; });
+  }
+  document.getElementById('collageNext').addEventListener('click', () => {
+    collageIndex = (collageIndex + 1) % collageSets.length;
+    renderCollage();
+  });
+  document.getElementById('collagePrev').addEventListener('click', () => {
+    collageIndex = (collageIndex - 1 + collageSets.length) % collageSets.length;
+    renderCollage();
+  });
+
+  // Mobile nav toggle -> simple reveal
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  navToggle.addEventListener('click', () => {
+    const isOpen = navLinks.style.display === 'flex';
+    navLinks.style.display = isOpen ? 'none' : 'flex';
+    navLinks.style.position = 'absolute';
+    navLinks.style.top = '70px';
+    navLinks.style.left = '0';
+    navLinks.style.right = '0';
+    navLinks.style.flexDirection = 'column';
+    navLinks.style.background = 'rgba(11,13,30,0.97)';
+    navLinks.style.padding = '24px var(--gutter)';
+    navLinks.style.gap = '18px';
+    navLinks.style.borderRadius = '0 0 16px 16px';
+  });
+</script>
+
+</body>
+</html>
