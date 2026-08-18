@@ -1,0 +1,92 @@
+.page {
+  background: var(--off-white);
+  min-height: 100vh;
+  padding-bottom: 80px;
+}
+
+.head { margin-top: 28px; }
+.badges { display: flex; gap: 10px; align-items: center; margin-bottom: 14px; }
+.badge {
+  background: var(--sunset-wash);
+  color: var(--sunset-deep);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+}
+.title { font-size: clamp(28px, 4vw, 44px); color: var(--text-light-primary); }
+.location {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  color: var(--text-light-secondary);
+  font-size: 14px;
+}
+.location::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--region, var(--olive));
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: 40px;
+  margin-top: 36px;
+  align-items: start;
+}
+.sidebar { position: sticky; top: 88px; }
+
+.section { margin-top: 40px; }
+.section h2 {
+  font-family: var(--serif);
+  font-size: 22px;
+  margin-bottom: 18px;
+  color: var(--text-light-primary);
+}
+
+.specs { display: flex; gap: 14px; flex-wrap: wrap; }
+.spec {
+  flex: 1;
+  min-width: 120px;
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 20px;
+  box-shadow: 0 6px 18px rgba(11, 13, 30, .05);
+}
+.specVal { font-family: var(--serif); font-size: 26px; color: var(--text-light-primary); }
+.specLabel { font-size: 12.5px; color: var(--text-light-secondary); margin-top: 4px; }
+
+.amenities { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.amenity {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: var(--text-light-primary);
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  box-shadow: 0 4px 12px rgba(11, 13, 30, .04);
+}
+.amenity svg { width: 18px; height: 18px; color: var(--sunset-deep); flex-shrink: 0; }
+
+.address {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 22px;
+  box-shadow: 0 6px 18px rgba(11, 13, 30, .05);
+  font-size: 14px;
+  color: var(--text-light-secondary);
+  line-height: 1.9;
+}
+.address strong { color: var(--text-light-primary); font-weight: 600; }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  .amenities { grid-template-columns: 1fr; }
+}

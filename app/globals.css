@@ -1,0 +1,73 @@
+/* ============ TOKENS ============ */
+:root {
+  /* Brand core — fixed across every region */
+  --near-black-navy: #0B0D1E;      /* anchor: deep sea / night mountain */
+  --deep-charcoal: #141210;
+  --white: #FFFFFF;
+  --off-white: #F3EFE9;            /* warm sand — reads mountain AND coast */
+  --pale-blue-gray: #E7E1D8;       /* warm hairline / border */
+  --text-dark-primary: #FFFFFF;
+  --text-dark-secondary: #CFC9C0;  /* warm light-gray */
+  --text-light-primary: #141210;
+  --text-light-secondary: #6B655E; /* warm stone */
+
+  /* Brand accent — sunset coral: the unifying "leisure" color across the country */
+  --sunset: #E56B4A;               /* bright: washes, large fills, focus, hero tints */
+  --sunset-deep: #C1502B;          /* text-safe: buttons, active states, small accent text */
+  --sunset-wash: #F7E6DE;          /* tint: badges, highlights */
+
+  /* Regional wayfinding accents — tags/markers ONLY, never primary UI */
+  --olive: #6B7C4A;                /* ريف دمشق — mountains (current) */
+  --azure: #2A8C9E;                /* الساحل — coast (Lattakia/Tartus), drops in later */
+
+  /* Type — driven by next/font variables set on <html> */
+  --serif: var(--font-markazi), 'Markazi Text', serif;
+  --sans: var(--font-cairo), 'Cairo', -apple-system, sans-serif;
+
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-pill: 999px;
+
+  --max-w: 1240px;
+  --gutter: clamp(20px, 4vw, 64px);
+  --section-pad: clamp(64px, 10vw, 140px);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--sans);
+  color: var(--text-light-primary);
+  background: var(--off-white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; border: none; }
+
+.container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+h1, h2, h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+}
+em { font-style: normal; font-weight: 600; opacity: .72; }
+p { line-height: 1.7; color: var(--text-light-secondary); font-size: 15px; }
+
+/* keyboard focus — brand-tinted ring everywhere */
+:focus-visible { outline: 2px solid var(--sunset-deep); outline-offset: 2px; border-radius: 4px; }
+
+/* regional wayfinding: mountains now, coast (azure) with zero refactor later */
+.region-mountain { --region: var(--olive); }
+.region-coast { --region: var(--azure); }
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; scroll-behavior: auto !important; }
+}

@@ -1,0 +1,46 @@
+.wrap {
+  position: relative;
+  z-index: 10;
+  margin-top: -78px;
+  padding: 0 var(--gutter);
+}
+.card {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: var(--radius-pill);
+  box-shadow: 0 30px 60px rgba(11, 13, 30, .18);
+  padding: 10px 34px 10px 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.field {
+  flex: 1;
+  min-width: 0;
+  padding: 14px 22px;
+  border-inline-start: 1px solid rgba(17, 17, 17, .08);
+}
+.field:first-of-type { border-inline-start: none; }
+.field label {
+  display: block;
+  font-size: 10px;
+  color: var(--text-light-secondary);
+  margin-bottom: 4px;
+}
+.field select {
+  border: none;
+  background: transparent;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-light-primary);
+  width: 100%;
+  appearance: none;
+}
+.submit { margin-inline-start: 6px; }
+
+@media (max-width: 900px) {
+  .card { flex-wrap: wrap; border-radius: var(--radius-md); padding: 18px; }
+  .field { border-inline-start: none; flex: 1 1 45%; padding: 10px; }
+}

@@ -1,0 +1,44 @@
+.listings {
+  background: var(--off-white);
+  padding: var(--section-pad) 0;
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 52px;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.head h2 { font-size: clamp(28px, 3.2vw, 38px); margin-top: 16px; }
+.note { max-width: 520px; margin-top: 10px; }
+
+.tabs {
+  display: flex;
+  gap: 10px;
+  background: var(--white);
+  padding: 6px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 8px 20px rgba(11, 13, 30, .06);
+}
+.tab {
+  padding: 10px 20px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-light-secondary);
+  background: transparent;
+  transition: all .25s ease;
+}
+.tabActive { background: var(--sunset-deep); color: var(--white); }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+.more { display: flex; justify-content: center; gap: 14px; margin-top: 54px; flex-wrap: wrap; }
+
+@media (max-width: 900px) {
+  .grid { grid-template-columns: 1fr; }
+}

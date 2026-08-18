@@ -1,0 +1,121 @@
+.page {
+  min-height: 100dvh;
+  background: var(--surface, #f7f5ef);
+  padding-bottom: 4rem;
+}
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+.header {
+  padding: 2rem 0 1.5rem;
+}
+.header h1 {
+  font-size: 1.8rem;
+  margin: 0 0 0.25rem;
+}
+.header p {
+  color: #6b6b66;
+  margin: 0;
+}
+
+.card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+  margin-bottom: 0.85rem;
+}
+.rowTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: inherit;
+  text-decoration: none;
+}
+.title:hover {
+  text-decoration: underline;
+}
+.sub {
+  color: #6b6b66;
+  font-size: 0.9rem;
+  margin-top: 0.15rem;
+}
+.badges {
+  display: flex;
+  gap: 6px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 0.5rem 1rem;
+  margin: 0.85rem 0;
+  font-size: 0.9rem;
+}
+.grid div span {
+  color: #6b6b66;
+}
+.grid div strong {
+  display: block;
+  font-weight: 700;
+  margin-top: 0.1rem;
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+.bPending { background: #fff4e5; color: #b26b00; }
+.bConfirmed { background: #e7f6ef; color: #1f7a5a; }
+.bCancelled { background: #fdecec; color: #b42318; }
+.bCompleted { background: #eef1f6; color: #3a4a63; }
+.bPaid { background: #e7f6ef; color: #1f7a5a; }
+.bUnpaid { background: #fbecec; color: #b42318; }
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.btn {
+  padding: 0.5rem 0.9rem;
+  border-radius: 9px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  color: inherit;
+}
+.btnDanger { color: #b42318; border-color: #f0c8c4; }
+.btn:disabled { opacity: 0.55; cursor: default; }
+
+.msg { font-size: 0.85rem; margin-top: 0.5rem; }
+.msgErr { color: #b42318; }
+.msgOk { color: #1f7a5a; }
+
+.empty {
+  background: #fff;
+  border: 1px dashed rgba(0, 0, 0, 0.15);
+  border-radius: 14px;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  color: #6b6b66;
+}
+.empty a {
+  color: #1f7a5a;
+  font-weight: 700;
+}

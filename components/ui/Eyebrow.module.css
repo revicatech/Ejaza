@@ -1,0 +1,19 @@
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--sunset-deep);
+}
+/* NOTE: no letter-spacing / text-transform — both are inert or harmful on Arabic script. */
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 18px;
+  height: 1px;
+  background: currentColor;
+  margin-inline-start: 10px;
+  opacity: .6;
+}
+.onDark { color: var(--sunset); }
+.center { justify-content: center; }

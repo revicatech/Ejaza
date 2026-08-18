@@ -1,0 +1,24 @@
+.bar {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: rgba(243, 239, 233, .85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--pale-blue-gray);
+}
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+.logo {
+  font-family: var(--serif);
+  font-size: 20px;
+  color: var(--text-light-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.mark { width: 9px; height: 9px; border-radius: 50%; background: var(--sunset-deep); }
+.back { font-size: 13px; font-weight: 600; color: var(--sunset-deep); }

@@ -1,0 +1,113 @@
+.page {
+  min-height: 100dvh;
+  background: var(--surface, #f7f5ef);
+  padding-bottom: 4rem;
+}
+.container {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+.header {
+  padding: 2rem 0 1.5rem;
+}
+.header h1 { font-size: 1.8rem; margin: 0 0 0.25rem; }
+.header p { color: #6b6b66; margin: 0; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.stat {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 14px;
+  padding: 1.1rem 1.25rem;
+}
+.statVal { font-size: 1.6rem; font-weight: 800; line-height: 1.1; }
+.statLabel { color: #6b6b66; font-size: 0.85rem; margin-top: 0.25rem; }
+
+.section { margin-bottom: 2.5rem; }
+.section h2 { font-size: 1.25rem; margin: 0 0 1rem; }
+
+.card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 14px;
+  padding: 1.25rem;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.85rem;
+}
+.field { display: flex; flex-direction: column; gap: 0.3rem; }
+.field label { font-size: 0.85rem; font-weight: 600; }
+.field input {
+  padding: 0.55rem 0.7rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 9px;
+  font: inherit;
+  background: #fff;
+}
+.hint { font-size: 0.78rem; color: #8a8a85; }
+
+.btn {
+  padding: 0.55rem 1rem;
+  border-radius: 9px;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  background: #fff;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.btnPrimary { background: #1f7a5a; color: #fff; border-color: #1f7a5a; }
+.btn:disabled { opacity: 0.55; cursor: default; }
+
+.msg { font-size: 0.85rem; margin-top: 0.6rem; }
+.msgErr { color: #b42318; }
+.msgOk { color: #1f7a5a; }
+
+.tableWrap { overflow-x: auto; }
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+  border-radius: 14px;
+  overflow: hidden;
+  font-size: 0.9rem;
+}
+.table th, .table td {
+  padding: 0.7rem 0.9rem;
+  text-align: right;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  white-space: nowrap;
+}
+.table th { background: #f4f2ec; font-weight: 700; }
+.table tr:last-child td { border-bottom: none; }
+
+.badge {
+  display: inline-block;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+.bAdmin { background: #efe7fb; color: #6b3fb2; }
+.bOwner { background: #e7f6ef; color: #1f7a5a; }
+.bGuest { background: #eef1f6; color: #3a4a63; }
+
+.roleSelect {
+  padding: 0.35rem 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.85rem;
+  background: #fff;
+}
+.self { color: #8a8a85; font-size: 0.8rem; }
